@@ -1,0 +1,10 @@
+{
+  "description": "Explore TERRA’s handcrafted Italian menu, discover its story and dining details, and book a table for a warm, memorable restaurant experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

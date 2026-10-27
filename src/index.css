@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Manrope:wght@400..700&display=swap');
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   TERRA — Design tokens
+   Color, type, radius and motion tokens. Everything in the UI pulls
+   from these so the website and the Design System page stay in sync.
+------------------------------------------------------------------- */
+@theme {
+  --font-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream: #f7f3eb;
+  --color-cream-deep: #eee7da;
+  --color-forest: #233d32;
+  --color-forest-soft: #2d4c3f;
+  --color-tomato: #c94c36;
+  --color-tomato-deep: #a93c29;
+  --color-charcoal: #252522;
+  --color-white: #ffffff;
+
+  --radius-xs: 2px;
+  --radius-card: 4px;
+  --radius-panel: 12px;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-tomato);
+    color: var(--color-white);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-tomato);
+    outline-offset: 3px;
+  }
+}
+
+/* Typography styles — reusable text styles (mirrors Figma text styles). */
+@layer components {
+  .t-display {
+    font-family: var(--font-serif);
+    font-weight: 350;
+    font-size: clamp(3rem, 2rem + 4.2vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    font-variation-settings: 'SOFT' 40;
+  }
+  .t-h1 {
+    font-family: var(--font-serif);
+    font-weight: 350;
+    font-size: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .t-h2 {
+    font-family: var(--font-serif);
+    font-weight: 350;
+    font-size: clamp(2.125rem, 1.5rem + 2.2vw, 3.5rem);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+  }
+  .t-h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 1.3rem + 0.6vw, 1.875rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .t-h4 {
+    font-family: var(--font-serif);
+    font-weight: 450;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .t-eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .t-body-lg {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  .t-body {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  .t-small {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  .t-caption {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
